@@ -1,0 +1,50 @@
+import type { Color } from "@/types/colors";
+import { BaseColors } from "./constants";
+
+export const DEFAULT_COLOR: Color = "gray";
+export const WHITE = "white";
+export const TRANSPARENT = "transparent";
+
+export const colorPalette = {
+  canvasBackground: 50,
+  lightBackground: 100,
+  background: 500,
+  darkBackground: 600,
+  darkestBackground: 800,
+  lightBorder: 200,
+  border: 500,
+  darkBorder: 700,
+  lightRing: 200,
+  ring: 300,
+  iconRing: 500,
+  lightText: 400,
+  text: 500,
+  iconText: 600,
+  darkText: 700,
+  darkestText: 900,
+  icon: 500,
+};
+
+export const themeColorRange = [
+  BaseColors.Blue,
+  BaseColors.Cyan,
+  BaseColors.Sky,
+  BaseColors.Indigo,
+  BaseColors.Violet,
+  BaseColors.Fuchsia,
+  BaseColors.Amber,
+  BaseColors.Red,
+  BaseColors.Orange,
+  BaseColors.Slate,
+  BaseColors.Gray,
+  BaseColors.Zinc,
+  BaseColors.Neutral,
+  BaseColors.Stone,
+  BaseColors.Yellow,
+  BaseColors.Lime,
+  BaseColors.Green,
+  BaseColors.Emerald,
+  BaseColors.Teal,
+  BaseColors.Pink,
+  BaseColors.Rose,
+] as const satisfies Color[];

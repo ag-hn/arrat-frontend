@@ -1,0 +1,5 @@
+{
+  "remote_configuration_file_name": "frontend_configuration.json",
+  "local_fallback_image_path": "/mock/placeholder.png",
+  "remote_configuration_url": ""
+}

@@ -1,0 +1,166 @@
+/** Tooltip */
+
+.leaflet-tooltip.leaflet-speed-callout-tooltip {
+  @apply rounded-full px-2 py-1 min-w-12 flex flex-col gap-2 items-center top-4 border border-border shadow-sm
+}
+
+.leaflet-tooltip.leaflet-speed-callout-tooltip.destructive {
+  @apply bg-destructive text-destructive-foreground
+}
+
+.leaflet-tooltip-left.leaflet-speed-callout-tooltip:before {
+  @apply right-0 -mr-12 hidden
+}
+
+.leaflet-tooltip-right.leaflet-speed-callout-tooltip:before {
+  @apply left-0 -ml-12 hidden
+}
+
+/** Popup */
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+    @apply bg-background border-border border shadow-md min-w-max px-4 py-3 pt-4
+}
+
+.leaflet-popup .leaflet-popup-content {
+    @apply m-0
+}
+
+/** Close Button */
+.leaflet-popup a.leaflet-popup-close-button {
+    @apply -top-2 -left-2
+}
+
+.leaflet-popup a.leaflet-popup-close-button span {
+    @apply rounded-full bg-muted bg-none border border-border text-muted-foreground text-xs grid place-items-center size-7
+}
+
+.leaflet-popup .leaflet-popup-tip {
+    @apply hidden
+}
+
+
+/** Clusters */
+.leaflet-cluster-anim .leaflet-marker-icon, .leaflet-cluster-anim .leaflet-marker-shadow {
+    -webkit-transition: -webkit-transform 0.3s ease-out, opacity 0.3s ease-in;
+    -moz-transition: -moz-transform 0.3s ease-out, opacity 0.3s ease-in;
+    -o-transition: -o-transform 0.3s ease-out, opacity 0.3s ease-in;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-in;
+}
+
+.leaflet-cluster-spider-leg {
+    /* stroke-dashoffset (duration and function) should match with leaflet-marker-icon transform in order to track it exactly */
+    -webkit-transition: -webkit-stroke-dashoffset 0.3s ease-out, -webkit-stroke-opacity 0.3s ease-in;
+    -moz-transition: -moz-stroke-dashoffset 0.3s ease-out, -moz-stroke-opacity 0.3s ease-in;
+    -o-transition: -o-stroke-dashoffset 0.3s ease-out, -o-stroke-opacity 0.3s ease-in;
+    transition: stroke-dashoffset 0.3s ease-out, stroke-opacity 0.3s ease-in;
+}
+
+.marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+}
+
+.marker-cluster-small div {
+    background-color: rgba(110, 204, 57, 0.6);
+}
+
+.marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+}
+
+.marker-cluster-medium div {
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.6);
+}
+
+.marker-cluster-large div {
+    background-color: rgba(241, 128, 23, 0.6);
+}
+
+/* IE 6-8 fallback colors */
+.leaflet-oldie .marker-cluster-small {
+    background-color: rgb(181, 226, 140);
+}
+
+.leaflet-oldie .marker-cluster-small div {
+    background-color: rgb(110, 204, 57);
+}
+
+.leaflet-oldie .marker-cluster-medium {
+    background-color: rgb(241, 211, 87);
+}
+
+.leaflet-oldie .marker-cluster-medium div {
+    background-color: rgb(240, 194, 12);
+}
+
+.leaflet-oldie .marker-cluster-large {
+    background-color: rgb(253, 156, 115);
+}
+
+.leaflet-oldie .marker-cluster-large div {
+    background-color: rgb(241, 128, 23);
+}
+
+/** Cluster */
+.marker-cluster {
+    @apply rounded-full grid place-items-center bg-clip-padding
+}
+
+/** Cluster center div */
+.marker-cluster div {
+    @apply font-sans text-foreground size-8 rounded-full grid place-items-center text-center p-0
+}
+
+/** Cluster text */
+.marker-cluster span {
+}
+
+/** Compass */
+.leaflet-control.leaflet-compass {
+	color:#1978cf;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.0);
+	filter: drop-shadow(0 1px 7px rgba(0,0,0,0.65));
+	margin-left:10px;
+	margin-top:10px;
+
+  transform: scale(0.75);
+}
+.leaflet-compass .compass-button {
+	display:block;
+	float:left;
+	width:36px;
+	height:36px;
+	border-radius:4px;
+}
+.leaflet-compass .compass-button.active {
+	background: #fff;
+}
+.leaflet-compass .compass-icon {
+	height: 32px;
+	width: 32px;
+	margin: 2px;
+	background: url('/mock/compass.svg') center center no-repeat;
+}
+
+.leaflet-compass .compass-digit {
+}
+
+.leaflet-compass .compass-alert {
+  opacity: 0;
+	position:absolute;
+	right:0;
+	bottom:-30px;
+	width:100px;
+	padding:2px;
+	line-height:.95em;
+	color:#e00;
+	border: 1px solid #888;
+	background-color: rgba(255, 255, 255, 0.75);
+	border-radius:4px;
+}
