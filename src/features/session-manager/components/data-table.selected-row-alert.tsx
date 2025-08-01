@@ -36,7 +36,7 @@ export function DataTableSelectedRowAlert() {
 
       <AlertTitle>Grouping Warning.</AlertTitle>
       <AlertDescription>
-        You have selected units created with different constraints.
+        You have selected units created with different constraints or system calibration.
         {" "}This may lead to unexpected outputs and analytics data for the created session.
       </AlertDescription>
     </Alert>

@@ -295,7 +295,7 @@ const ChartLegendContent = React.forwardRef<
       >
         {payload.map((item) => {
           // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-          const key = nameKey ?? `${item.dataKey ?? ""}` ?? "value"
+          const key = nameKey ?? (item.dataKey ? `${item.dataKey}` : undefined) ?? "value"
           const itemConfig = getPayloadConfigFromPayload(config, item, key)
 
           return (

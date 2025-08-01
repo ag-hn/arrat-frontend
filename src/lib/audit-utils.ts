@@ -206,6 +206,7 @@ const INTERNAL__METRIC_DESCRIPTION_BY_KEY: Record<string, string> = {
   "conspicuity": "The ratio of true positive detections to all detections.",
   "understandability": "The ease with which camera-based systems can accurately detect and classify a type of sign of interest.",
   "glance_legibility": "The ability to accurately detect a sign using exactly one frame.",
+  "legibility_time": "The time interval between the moment a sign becomes legible and exists in the camera's field of view.",
 }
 
 export function getMetricDescriptionFromKey(key: string) {

@@ -32,9 +32,13 @@ export function FeatureDetailsSign({
   lrs,
   overall_score: score,
   conspicuity,
-  legibility_time: _legibility_time,
+  legibility_time,
   glance_legibility,
   understandability,
+  conspicuity_score,
+  legibility_time_score,
+  glance_legibility_score,
+  understandability_score,
   className,
 }: { className?: string } & AppSignFeaturePropsV2) {
   const params = useSessionAndAuditParams();
@@ -46,16 +50,20 @@ export function FeatureDetailsSign({
       percentage: score,
     },
     {
-      header: `Understandabiltiy (${percentageFormatterFromDecimal(understandability)})`,
-      percentage: understandability,
+      header: `Understandabiltiy (${percentageFormatterFromDecimal(understandability_score ?? understandability)})`,
+      percentage: understandability_score ?? understandability,
     },
     {
-      header: `Legibility (${percentageFormatterFromDecimal(glance_legibility)})`,
-      percentage: glance_legibility,
+      header: `Legibility Time (${percentageFormatterFromDecimal(legibility_time_score ?? legibility_time)})`,
+      percentage: legibility_time_score ?? legibility_time,
     },
     {
-      header: `Conspicuity (${percentageFormatterFromDecimal(conspicuity)})`,
-      percentage: conspicuity,
+      header: `Glance Legibility (${percentageFormatterFromDecimal(glance_legibility_score ?? glance_legibility)})`,
+      percentage: glance_legibility_score ?? glance_legibility,
+    },
+    {
+      header: `Conspicuity (${percentageFormatterFromDecimal(conspicuity_score ?? conspicuity)})`,
+      percentage: conspicuity_score ?? conspicuity,
     },
   ];
 

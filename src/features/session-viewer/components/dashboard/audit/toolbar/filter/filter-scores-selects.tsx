@@ -200,13 +200,15 @@ export function SignScoreFilterSelect({ className }: { className?: string }) {
       ret.push('Accuracy');
     if (INTERNAL__scoreIsNotDefaultAndWithinRange(value.signUnderstandability))
       ret.push('Understandability');
-    if (INTERNAL__scoreIsNotDefaultAndWithinRange(value.signLegibility))
-      ret.push('Legibility');
+    if (INTERNAL__scoreIsNotDefaultAndWithinRange(value.signLegibilityTime))
+      ret.push('Time');
+    if (INTERNAL__scoreIsNotDefaultAndWithinRange(value.signGlanceLegibility))
+      ret.push('Glance');
     if (INTERNAL__scoreIsNotDefaultAndWithinRange(value.signConspicuity))
       ret.push('Conspicuity');
 
     return ret
-  }, [value.signConspicuity, value.signLegibility, value.signOverall, value.signUnderstandability])
+  }, [value.signConspicuity, value.signGlanceLegibility, value.signLegibilityTime, value.signOverall, value.signUnderstandability])
 
   const selectedValues = selectedValuesFn()
   return (
@@ -288,11 +290,20 @@ export function SignScoreFilterSelect({ className }: { className?: string }) {
             })}
           />
           <INTERNAL__RangeComponent
-            associatedScoreKey="glance_legibility"
-            title="Legibility"
-            defaultValue={value.signLegibility}
+            associatedScoreKey="legibility_time"
+            title="Legibility Time"
+            defaultValue={value.signLegibilityTime}
             onRangeChange={(value) => setPendingValue((p) => {
-              p.signLegibility = value
+              p.signLegibilityTime = value
+              return p
+            })}
+          />
+          <INTERNAL__RangeComponent
+            associatedScoreKey="glance_legibility"
+            title="Glance Legibility"
+            defaultValue={value.signGlanceLegibility}
+            onRangeChange={(value) => setPendingValue((p) => {
+              p.signGlanceLegibility = value
               return p
             })}
           />

@@ -21,7 +21,8 @@ export function FilterReset() {
             value.type.length > 0 ||
             INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signOverall) ||
             INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signUnderstandability) ||
-            INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signLegibility) ||
+            INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signLegibilityTime) ||
+            INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signGlanceLegibility) ||
             INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.signConspicuity) ||
             INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.lanelineCombined) ||
             INTERNAL__scoreIsNotDefaultAndWithinRange(scoresValue.lanelineConsistency) ||

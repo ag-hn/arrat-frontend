@@ -27,6 +27,7 @@ function isEmptyFilters(filter: NonNullable<Input>["filter"]) {
     (!filter?.unit || filter.unit.length === 0) &&
     (!filter?.type || filter.type.length === 0) &&
     INTERNAL__summaryScoreIsDefault(filter?.summaryFilter?.signOverall) &&
+    INTERNAL__summaryScoreIsDefault(filter?.summaryFilter?.signLegibilityScore) &&
     INTERNAL__summaryScoreIsDefault(filter?.summaryFilter?.signLegibility) &&
     INTERNAL__summaryScoreIsDefault(filter?.summaryFilter?.signUnderstandability) &&
     INTERNAL__summaryScoreIsDefault(filter?.summaryFilter?.signConspicuity) &&
@@ -69,7 +70,7 @@ function INTERNAL__matchesSegmentScore(check: number[] | undefined, given: AppSi
 
 function INTERNAL__matchesSignScore(
   check: number[] | undefined,
-  score: number | undefined,
+  score: number | undefined | null,
 ) {
   if (!check || !score) {
     return true;
@@ -120,9 +121,10 @@ function INTERNAL__filterSign(input: Input, sign: AppSignFeatureProps) {
     (
       (isSignPropertiesV2(sign) && 
       INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signOverall, sign.overall_score) &&
-      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signConspicuity, sign.conspicuity) &&
-      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signUnderstandability, sign.understandability) &&
-      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signLegibility, sign.glance_legibility)
+      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signLegibilityScore, sign.legibility_time_score) &&
+      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signConspicuity, sign.conspicuity_score) &&
+      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signUnderstandability, sign.understandability_score) &&
+      INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signLegibility, sign.glance_legibility_score)
     ) ||
       (isSignPropertiesV1(sign) &&
       INTERNAL__matchesSignScore(input.filter?.summaryFilter?.signOverall, sign.score)
@@ -235,6 +237,7 @@ const inputSchema = z.object({
       lanelineCurvature: summaryFilterOption,
       lanelineDetection: summaryFilterOption,
       signOverall: summaryFilterOption,
+      signLegibilityScore: summaryFilterOption,
       signUnderstandability: summaryFilterOption,
       signLegibility: summaryFilterOption,
       signConspicuity: summaryFilterOption,

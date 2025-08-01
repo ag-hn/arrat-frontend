@@ -45,8 +45,15 @@ const awsScoreBinsSchema = z.tuple([z.number(), z.number()]);
  * Units
  */
 
+const awsUnitsCalibrationDataSchema = z.object({
+  timestamp: z.string().nullish(),
+})
+
 const awsUnitsMetadataSchema = z.object({
-  segment_score_bins: awsScoreBinsSchema,
+  segment_score_bins: awsScoreBinsSchema.nullish(),
+  vehicle_id: z.string().nullish(),
+  system_id: z.string().nullish(),
+  cal_data: awsUnitsCalibrationDataSchema.nullish(),
 })
 
 const awsUnitsSchema = z.object({

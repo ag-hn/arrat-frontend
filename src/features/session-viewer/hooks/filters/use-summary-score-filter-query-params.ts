@@ -7,7 +7,7 @@ export const SUMMARY_SCORE_FILTER_MIN_VALUE = 0
 export const SUMMARY_SCORE_FILTER_DEFAULT_VALUE: [number, number] = [SUMMARY_SCORE_FILTER_MIN_VALUE, SUMMARY_SCORE_FILTER_MAX_VALUE]
 
 type LanelineFilterOption = "lanelineVisibility" | "lanelineConsistency" | "lanelineDetection" | "lanelineCurvature" | "lanelineCombined"
-type SignFilterOption = "signOverall" | "signConspicuity" | "signLegibility" | "signUnderstandability"
+type SignFilterOption = "signOverall" | "signConspicuity" | "signLegibilityTime" | "signUnderstandability" | "signGlanceLegibility"
 type FilterOptions = LanelineFilterOption | SignFilterOption
 const separator = ","
 const parser = parseAsArrayOf(parseAsInteger, separator)
@@ -30,7 +30,8 @@ const FEATURE_FILTERS = {
   lanelineDetection: parser,
   signOverall: parser,
   signConspicuity: parser,
-  signLegibility: parser,
+  signGlanceLegibility: parser,
+  signLegibilityTime: parser,
   signUnderstandability: parser,
 } satisfies UseQueryStatesKeysMap<SummaryScoresFilter>
 
@@ -71,7 +72,8 @@ export function useSummaryScoreFeatureFilterQueryParams<
     setSigns: (values: SummarySignScoresFilter) => setFilters((p) => {
       p.signOverall = values.signOverall;
       p.signConspicuity = values.signConspicuity;
-      p.signLegibility = values.signLegibility;
+      p.signGlanceLegibility = values.signGlanceLegibility;
+      p.signLegibilityTime = values.signLegibilityTime;
       p.signUnderstandability = values.signUnderstandability;
       return p
     }),
