@@ -6,8 +6,9 @@ import { IconWrapper } from "@/components/primitives/icon-wrapper";
 import { useSessionAndAuditRouter } from "@/features/session-viewer/hooks/use-session-and-audit-router";
 import { useSessionList } from "@/features/session-viewer/hooks/viewer/use-session-list";
 import { cn } from "@/lib/utils";
-import { BadgePlusIcon, Link, ScanSearchIcon } from "lucide-react";
+import { BadgePlusIcon, ScanSearchIcon } from "lucide-react";
 import { useEffect } from "react";
+import { Link } from "@/components/next-view-transitions";
 
 export function ForceSessionRedirect() {
   const router = useSessionAndAuditRouter();
